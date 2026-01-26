@@ -23,9 +23,7 @@ class ItemDocumentList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NormalText(
-              "PD " +
-                  document.documentId.toString().padLeft(8, '0') +
-                  (document.statusDocumentId == 2 ? " (Confirmado)" : ""),
+              "PD ${document.documentId.toString().padLeft(8, '0')}${document.statusDocumentId == 2 ? " (Confirmado)" : ""}",
               color: AppColors.grayFontColor,
               size: 16,
               bold: true,
@@ -38,7 +36,7 @@ class ItemDocumentList extends StatelessWidget {
             const SizedBox(height: 5.0),
           ],
         ),
-        subtitle: Text(document.dateStr + " Q. " + f.format(document.total)),
+        subtitle: Text("${document.dateStr} Q. ${f.format(document.total)}"),
         trailing: const Icon(Icons.more_vert),
         isThreeLine: true,
         onTap: () {

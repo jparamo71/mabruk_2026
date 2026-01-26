@@ -58,8 +58,8 @@ class _MainMenuState extends State<MainMenu> {
                             'assets/infosercom_little.png',
                           ),
                           applicationName: 'Mabruk Ventas',
-                          applicationVersion: '2.0.5',
-                          applicationLegalese: '\u{a9} Mayo, 2022 INFOSERCOM',
+                          applicationVersion: '2.2.0',
+                          applicationLegalese: '\u{a9} Enero, 2026 INFOSERCOM',
                         );
                       },
                     ),
@@ -92,7 +92,7 @@ class _MainMenuState extends State<MainMenu> {
         text: 'PEDIDOS',
         icon: Icons.tty_sharp,
         onNavigate: () {
-          Navigator.of(context).pushNamed("/products");
+          Navigator.of(context).pushNamed("/documents");
         },
       ),
       MainMenuButton(
@@ -121,7 +121,7 @@ class _MainMenuState extends State<MainMenu> {
         icon: Icons.inventory,
         leftButton: false,
         onNavigate: () {
-          Navigator.of(context).pushNamed("/inventory");
+          Navigator.of(context).pushNamed("/tracking-inventories");
         },
       ),
       MainMenuButton(
@@ -141,7 +141,7 @@ class _MainMenuState extends State<MainMenu> {
         icon: Icons.qr_code,
         leftButton: false,
         onNavigate: () {
-          Navigator.of(context).pushNamed("/codes");
+          Navigator.of(context).pushNamed("/update-code");
         },
       ),
       MainMenuButton(
@@ -151,7 +151,7 @@ class _MainMenuState extends State<MainMenu> {
         icon: Icons.qr_code_scanner,
         leftButton: false,
         onNavigate: () {
-          Navigator.of(context).pushNamed("/codeupc");
+          Navigator.of(context).pushNamed("/update-upc");
         },
       ),
       MainMenuButton(

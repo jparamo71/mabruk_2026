@@ -2,7 +2,7 @@ class CustomerModel {
   final int customerId;
   final String customerName;
   final String nit;
-  final String adddress;
+  final String address;
   final String phoneNumber;
   final String email;
   final String mainContact;
@@ -12,23 +12,32 @@ class CustomerModel {
     required this.customerId,
     required this.customerName,
     required this.nit,
-    required this.adddress,
+    required this.address,
     required this.phoneNumber,
     required this.email,
     required this.mainContact,
     required this.phoneContact,
   });
 
-  factory CustomerModel.fromJson(Map<String, dynamic> json) {
-    return CustomerModel(
-      customerId: int.parse(json["ClienteID"].toString()),
-      customerName: json["Nombre_Cliente"] ?? '',
-      nit: json["NIT"] ?? '',
-      adddress: json["Direccion"] ?? '',
-      phoneNumber: json["Telefono"] ?? '',
-      email: json["Correo_Electronico"] ?? '',
-      mainContact: json["Contacto_Principal"] ?? '',
-      phoneContact: json["Telefono_Contacto"] ?? '',
-    );
-  }
+  factory CustomerModel.fromJson(Map<String, dynamic> json) => CustomerModel(
+    customerId: int.parse(json["ClienteID"].toString()),
+    customerName: json["Nombre_Cliente"] ?? '',
+    nit: json["NIT"] ?? '',
+    address: json["Direccion"] ?? '',
+    phoneNumber: json["Telefono"] ?? '',
+    email: json["Correo_Electronico"] ?? '',
+    mainContact: json["Contacto_Principal"] ?? '',
+    phoneContact: json["Telefono_Contacto"] ?? '',
+  );
+
+  Map<String, dynamic> toJson() => {
+    'customerId': customerId,
+    'customerName': customerName,
+    'nit': nit,
+    'address': address,
+    'phoneNumber': phoneNumber,
+    'email': email,
+    'mainContact': mainContact,
+    'phoneContact': phoneContact,
+  };
 }

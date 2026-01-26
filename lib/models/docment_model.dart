@@ -11,9 +11,9 @@ class DocumentModel {
   int? statusDocumentId;
   String? statusDocument;
   String? deliveryAddress;
-  List<DocumentDetailModel> details = [];
   final UserModel seller;
   String? notes;
+  List<DocumentDetailModel> details = [];
 
   DocumentModel({
     required this.documentId,
