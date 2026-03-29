@@ -1,16 +1,24 @@
 class BrandModel {
-  final int brandId;
-  final String brandName;
+  final int id;
+  final String name;
 
-  BrandModel({required this.brandId, required this.brandName});
+  BrandModel({required this.id, required this.name});
 
   factory BrandModel.fromJson(Map<String, dynamic> json) => BrandModel(
-    brandId: int.parse(json["id"].toString()),
-    brandName: json["name"] ?? '',
+    id: int.parse(json["id"].toString()),
+    name: json["name"] ?? '',
   );
 
-  Map<String, dynamic> toJson() => {
-    'brandId': brandId,
-    'brandname': brandName
-  };
+  factory BrandModel.empty() => BrandModel(id: 0, name: '');
+
+  Map<String, dynamic> toJson() => {'id': id, 'name': name};
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BrandModel && runtimeType == other.runtimeType && id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
+
 }

@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/services.dart';
 import 'package:mabruk_2026/utils/globals.dart';
 
 class ProductModel {
@@ -24,11 +21,25 @@ class ProductModel {
     required this.brandName,
     required this.quantityAvailable,
     required this.prize,
-    this.photo = '',
     required this.barcharCode,
     required this.upcCode,
-    required this.unitsByPackage
+    required this.unitsByPackage,
+    this.photo = '',
   });
+
+  factory ProductModel.empty() => ProductModel(
+    productId: 0,
+    productCode: '',
+    justName: '',
+    productName: '',
+    brandName: '',
+    quantityAvailable: 0,
+    prize: 0,
+    barcharCode: '',
+    upcCode: '',
+    unitsByPackage: 0,
+    photo: '',
+  );
 
   String rutaFisicaImage() {
     if (photo != '') {
@@ -48,21 +59,21 @@ class ProductModel {
     photo: json["rutaImagen"] ?? '',
     barcharCode: json["codigoBarra"] ?? '',
     upcCode: json["codigoUPC"] ?? '',
-    unitsByPackage: int.parse(json['unidadesPorPaquete'] ?? '0')
+    unitsByPackage: int.parse(json['unidadesPorPaquete'] ?? '0'),
   );
 
   factory ProductModel.fromEngJson(Map<String, dynamic> json) => ProductModel(
     productId: int.parse(json["id"].toString()),
     productCode: json["code"] ?? '',
     justName: json["name"] ?? '',
-    productName: (json["code"] ?? '') + ' - ' + (json["name"] ?? ''),
+    productName: "${json["code"] ?? ''} - ${json["name"] ?? ''}",
     brandName: json["markName"] ?? '',
     quantityAvailable: double.parse(json["available"].toString()),
     prize: double.parse(json["unitPrice"].toString()),
     photo: json["imageUrl"] ?? '',
     barcharCode: json["barcharCode"] ?? '',
     upcCode: json["upcCode"] ?? '',
-    unitsByPackage: int.parse(json['unitsByPackage'] ?? '0')
+    unitsByPackage: int.parse(json['unitsByPackage'] ?? '0'),
   );
 
   Map<String, dynamic> toJson() => {

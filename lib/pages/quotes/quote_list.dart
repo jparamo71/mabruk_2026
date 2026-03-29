@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mabruk_2026/models/customer_model.dart';
+import 'package:mabruk_2026/pages/customer/customer_list.dart';
 import 'package:mabruk_2026/providers/mabruk_provider.dart';
+import 'package:mabruk_2026/services/mabruk_service.dart';
+import 'package:mabruk_2026/utils/globals.dart';
 import 'package:mabruk_2026/utils/palette_theme.dart';
-import 'package:mabruk_2026/widgets/list_documents.dart';
+import 'package:mabruk_2026/pages/documents/list_documents.dart';
 import 'package:provider/provider.dart';
 
 class QuoteList extends StatefulWidget {
@@ -37,33 +41,13 @@ class _QuoteListState extends State<QuoteList> {
                 documents: context.watch<MabrukProvider>().documentsModel,
               );
             }
-            return const Center(child: Text("xxxx"));
+            return const Center(child: Text("Cargando datos..."));
           },
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          /*DocumentModel document = DocumentModel(
-              customer: CustomerModel(
-                  adddress: '',
-                  customerId: 0,
-                  customerName: '',
-                  email: '',
-                  nit: '',
-                  phoneNumber: '',
-                  mainContact: '',
-                  phoneContact: ''),
-              dateStr: '',
-              documentId: 0,
-              isQuote: true,
-              seller: UserModel(
-                  email: '', fullName: '', userId: 0, allowUploadImage: false),
-              notes: '',
-              deliveryAddress: '',
-              total: 0.0,
-              statusDocument: '',
-              statusDocumentId: 0);
-          _showDocumentAndWaitAnswer(document);*/
+          _showDocumentAndWaitAnswer(context);
         },
         backgroundColor: AppColors.mainColor,
         child: const Icon(Icons.add),
@@ -104,4 +88,22 @@ class _QuoteListState extends State<QuoteList> {
       ),
     );
   }
+
+
+  void _showDocumentAndWaitAnswer(BuildContext context) async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CustomerList()),
+    );
+    if (result != null) {
+      CustomerModel _customerSelected = result as CustomerModel;
+      final mabrukService = MabrukService();
+      var document = await mabrukService.createDocument(_customerSelected.customerId, userName, false);
+      if (document != null)
+      {
+        Navigator.pushNamed(context, "/document", arguments: document.documentId);
+      }
+    }
+  }
+
 }

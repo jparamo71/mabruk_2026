@@ -35,7 +35,7 @@ class _UpdateUPCState extends State<UpdateUPC> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 300,
                     child: TextField(
                       controller: txtController,
@@ -52,7 +52,7 @@ class _UpdateUPCState extends State<UpdateUPC> {
                     ),
                   ),
                   SizedBox(width: 10),
-                  Container(
+                  SizedBox(
                     width: 300,
                     child: TextField(
                       controller: txtQController,
@@ -168,7 +168,7 @@ class _UpdateUPCState extends State<UpdateUPC> {
                 ),
               ),
             ]),
-            ...prds.map((e) => _buildTableRow(e)).toList()
+            ...prds.map((e) => _buildTableRow(e))
           ],
         ),
       ),

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mabruk_2026/models/product_model.dart';
-import 'package:mabruk_2026/widgets/item_product_list.dart';
+import 'package:mabruk_2026/pages/products/item_product_list.dart';
 
 class ListProduct extends StatelessWidget {
   final List<ProductModel> products;
-  const ListProduct({super.key, required this.products});
+  final bool returnValue;
+  const ListProduct({
+    super.key,
+    required this.products,
+    required this.returnValue,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +24,14 @@ class ListProduct extends StatelessWidget {
           available: currentProduct.quantityAvailable,
           prize: currentProduct.prize,
           imagePath: currentProduct.rutaFisicaImage(),
-          onSelect: () {},
+          onSelect: () {
+            if (this.returnValue) {
+              Navigator.pop(context, currentProduct);
+            }
+          },
           /*widget.parameters.returnValue
               ? () {
-                  Navigator.pop(context, currentProduct);
+
                 }
               : () => Navigator.of(
                   context,

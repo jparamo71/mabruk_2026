@@ -17,15 +17,29 @@ class DocumentDetailModel {
     required this.lineNumber,
   });
 
+  /// Serializa json to DocumentDetailModel object
   factory DocumentDetailModel.fromJson(
     Map<String, dynamic> json,
     int lineNumber,
-  ) => DocumentDetailModel(
-    detailId: int.parse(json["Detalle_PedidoID"].toString()),
-    product: ProductModel.fromJson(json["Producto"]),
-    quantity: double.parse(json["Cantidad"].toString()),
-    unitPrize: double.parse(json["Valor_Unitario"].toString()),
-    total: double.parse(json["Valor_Total"].toString()),
-    lineNumber: lineNumber,
-  );
+  ) {
+    ProductModel product = ProductModel(
+        productId: int.parse(json['productId'].toString()),
+        productCode: json['productCode'].toString(),
+        justName: '',
+        productName: json['productName'].toString(),
+        brandName: json['brandName'].toString(),
+        quantityAvailable: double.parse(json['quantityAvailable'].toString()),
+        prize: double.parse(json['unitPrize'].toString()),
+        barcharCode: '',
+        upcCode: '',
+        unitsByPackage: 0);
+    return DocumentDetailModel(
+      detailId: int.parse(json["detailId"].toString()),
+      product: product,
+      quantity: double.parse(json["quantity"].toString()),
+      unitPrize: double.parse(json["unitPrize"].toString()),
+      total: double.parse(json["total"].toString()),
+      lineNumber: 1,
+    );
+  } 
 }

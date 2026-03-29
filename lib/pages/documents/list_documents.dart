@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mabruk_2026/models/docment_model.dart';
-import 'package:mabruk_2026/widgets/item_document_list.dart';
+import 'package:mabruk_2026/models/document_model.dart';
+import 'package:mabruk_2026/pages/documents/item_document_list.dart';
 
 class ListDocument extends StatelessWidget {
   final List<DocumentModel> documents;
-  const ListDocument({super.key, required this.documents });
+  const ListDocument({super.key, required this.documents});
 
   @override
   Widget build(BuildContext context) {

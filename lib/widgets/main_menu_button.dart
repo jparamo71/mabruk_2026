@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mabruk_2026/utils/palette_theme.dart';
-import 'package:mabruk_2026/widgets/normal_text.dart';
+import 'package:mabruk_2026/utils/styles/normal_text.dart';
 
 class MainMenuButton extends StatelessWidget {
-  final double width;
-  final double height;
   final String text;
   final IconData? icon;
   final bool leftButton;
   final Function onNavigate;
   const MainMenuButton({
     super.key,
-    required this.width,
-    required this.height,
     required this.text,
     required this.onNavigate,
     this.icon = Icons.home,
@@ -28,8 +23,9 @@ class MainMenuButton extends StatelessWidget {
           onNavigate();
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          elevation: 0,
+          backgroundColor: Colors.green,
+          elevation: 5.0,
+          shadowColor: Colors.black87,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
           ),
@@ -37,17 +33,10 @@ class MainMenuButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 40, color: AppColors.mainColor),
-            NormalText(text, size: 14, color: AppColors.mainColor),
+            Icon(icon, size: 40, color: Colors.white),
+            NormalText(text, size: 14, color: Colors.white),
           ],
         ),
-        /*
-        style: ElevatedButton.styleFrom(
-          fixedSize: Size(width, height),
-          foregroundColor: Colors.white,
-          elevation: 0,
-        ),
-        */
       ),
     );
   }

@@ -20,14 +20,14 @@ class CustomerModel {
   });
 
   factory CustomerModel.fromJson(Map<String, dynamic> json) => CustomerModel(
-    customerId: int.parse(json["ClienteID"].toString()),
-    customerName: json["Nombre_Cliente"] ?? '',
-    nit: json["NIT"] ?? '',
-    address: json["Direccion"] ?? '',
-    phoneNumber: json["Telefono"] ?? '',
-    email: json["Correo_Electronico"] ?? '',
-    mainContact: json["Contacto_Principal"] ?? '',
-    phoneContact: json["Telefono_Contacto"] ?? '',
+    customerId: int.parse(json["clienteId"].toString()),
+    customerName: json["nombreComercial"] ?? '',
+    nit: json["nit"] ?? '',
+    address: json["direccionComercial"] ?? '',
+    phoneNumber: json["telefonos"] ?? '',
+    email: json["correoElectronico"] ?? '',
+    mainContact: json["contactoPrincipal"] ?? '',
+    phoneContact: json["telContacto"] ?? '',
   );
 
   Map<String, dynamic> toJson() => {

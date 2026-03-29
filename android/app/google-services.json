@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "156324557995",
+    "project_id": "mabruk-2026",
+    "storage_bucket": "mabruk-2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156324557995:android:8d3be078458180acc833ee",
+        "android_client_info": {
+          "package_name": "com.infosercom.mabruk_2026"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156324557995-bnik93375mq5tg6q9lkk9hioriku9m80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.infosercom.mabruk_2026",
+            "certificate_hash": "46eae1dbb6546fada12477e71dcd63df08d8a602"
+          }
+        },
+        {
+          "client_id": "156324557995-esj5sb7vldmr5blvgojrnsvq9hk67k73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU9iwOricquMUvzS6WTH9mbBptrDGnDjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156324557995-esj5sb7vldmr5blvgojrnsvq9hk67k73.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

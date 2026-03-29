@@ -1,3 +1,5 @@
+import 'package:mabruk_2026/models/physical_tracking_detail_model.dart';
+
 class PhysicalTrackingModel {
   int id = 0;
   DateTime dateStart = DateTime.now();
@@ -5,7 +7,7 @@ class PhysicalTrackingModel {
   int userId = 0;
   int markId = 0;
   String markName = "";
-  //List<PtDetail>? details;
+  List<PhysicalTrackingDetailModel>? details;
 
   PhysicalTrackingModel();
 
@@ -25,7 +27,8 @@ class PhysicalTrackingModel {
       'markId': markId,
       'markName': markName,
     };
-
     return result;
   }
+
+
 }

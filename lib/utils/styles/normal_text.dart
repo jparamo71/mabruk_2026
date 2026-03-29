@@ -11,7 +11,7 @@ class NormalText extends StatelessWidget {
     this.text, {
     super.key,
     this.color = const Color(0xFF5C5C5C),
-    this.size = 14,
+    this.size = 12,
     this.height = 1.2,
     this.bold = false,
     this.overflow = TextOverflow.ellipsis,

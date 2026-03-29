@@ -50,13 +50,24 @@ class HttpCustom extends http.BaseClient {
           body: body,
           encoding: encoding,
         )
+        .timeout(
+          const Duration(seconds: 5),
+          onTimeout: () {
+            // Optional: Code to execute when a timeout occurs,
+            // e.g., show a dialog, log the event, or return a default response.
+            return http.Response(
+              'Error: Request Timeout',
+              408,
+            ); // Return a custom response object
+          },
+        )
         .then(_checkError);
   }
 
-  Future<bool> postFile(Uri url, String fileName, Uint8List fileData) async {
+  Future<bool> postFile(Uri url, String fileKey, String fileName, Uint8List fileData) async {
     var request = http.MultipartRequest("POST", url);
     request.files.add(
-      http.MultipartFile.fromBytes('picture', fileData, filename: fileName),
+      http.MultipartFile.fromBytes(fileKey, fileData, filename: fileName),
     );
     var r = await request.send();
     return (r.statusCode == 200);

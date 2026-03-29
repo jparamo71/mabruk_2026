@@ -1,3 +1,5 @@
+import 'package:mabruk_2026/models/import_detail_model.dart';
+
 class ImportModel {
   final int id;
   final String documentTypeId;
@@ -8,7 +10,7 @@ class ImportModel {
   final String documentDateStr;
   final double totalValue;
   final String status;
-  //List<ImportDetail> detail = [];
+  List<ImportDetailModel> detail = [];
 
   ImportModel({
     required this.id,
@@ -23,7 +25,7 @@ class ImportModel {
   });
 
   factory ImportModel.fromJson(Map<String, dynamic> json) => ImportModel(
-    id: json['id']?.toInt() ?? 0, // int.parse(json["id"]?.toString() ?? "0"),
+    id: json['id']?.toInt() ?? 0,
     documentTypeId: json["documentTypeId"] ?? "",
     documentNumber: json["documentNumber"] ?? "",
     documentTypeName: json["documentTypeName"] ?? "",

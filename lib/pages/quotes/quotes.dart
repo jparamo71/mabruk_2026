@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mabruk_2026/providers/mabruk_provider.dart';
 import 'package:mabruk_2026/utils/palette_theme.dart';
-import 'package:mabruk_2026/widgets/list_documents.dart';
+import 'package:mabruk_2026/utils/styles/title_text.dart';
+import 'package:mabruk_2026/pages/documents/list_documents.dart';
 import 'package:provider/provider.dart';
 
-class DocumentList extends StatefulWidget {
-  const DocumentList({super.key});
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
 
   @override
-  State<DocumentList> createState() => _DocumentListState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _DocumentListState extends State<DocumentList> {
+class _QuoteListState extends State<QuoteList> {
   @override
   void initState() {
     Provider.of<MabrukProvider>(
@@ -26,7 +27,7 @@ class _DocumentListState extends State<DocumentList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.mainColor,
-        title: const Text('PEDIDOS'),
+        title: TitleText("PEDIDOS"),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -37,7 +38,7 @@ class _DocumentListState extends State<DocumentList> {
                 documents: context.watch<MabrukProvider>().documentsModel,
               );
             }
-            return const Center(child: Text("xxxx"));
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ),
@@ -46,7 +47,7 @@ class _DocumentListState extends State<DocumentList> {
           /*DocumentModel document = DocumentModel.empty();
           _showDocumentAndWaitAnswer(context, document);*/
         },
-        backgroundColor: AppColors.mainColor,
+        backgroundColor: AppColors.secondaryColor,
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -86,7 +87,7 @@ class _DocumentListState extends State<DocumentList> {
     );
   }
 
-  /*
+/*
 
   void _showDocumentDetail(BuildContext context, int documentId) async {
     getDocument(documentId)
@@ -96,7 +97,7 @@ class _DocumentListState extends State<DocumentList> {
 
   */
 
-  /*
+/*
   void _showDocumentAndWaitAnswer(
     BuildContext context,
     DocumentModel document,

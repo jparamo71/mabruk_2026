@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mabruk_2026/utils/globals.dart';
 import 'package:mabruk_2026/utils/palette_theme.dart';
-import 'package:mabruk_2026/widgets/normal_text.dart';
+import 'package:mabruk_2026/utils/styles/normal_text.dart';
 
 class ItemProductList extends StatelessWidget {
   final String productCode;
@@ -52,10 +52,10 @@ class ItemProductList extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 120,
-          width: 120,
-          padding: EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
+          height: 80,
+          width: 80,
+          padding: EdgeInsets.all(0.0),
+          /*decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.0),
             color: Colors.white,
             boxShadow: [
@@ -66,7 +66,7 @@ class ItemProductList extends StatelessWidget {
                 offset: Offset(0, 3),
               ),
             ],
-          ),
+          ),*/
           child: imagePath == ''
               ? Image(image: AssetImage("assets/no_image.png"))
               : Image(image: NetworkImage(imagePath)),
@@ -88,16 +88,16 @@ class ItemProductList extends StatelessWidget {
   Widget _productInformation() {
     return Expanded(
       child: Container(
-        height: 100,
-        margin: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 5.0),
-        padding: EdgeInsets.only(left: 10.0),
+        //height: 0,
+        margin: EdgeInsets.only(top: 4.0, bottom: 4.0, left: 5.0),
+        padding: EdgeInsets.only(left: 4.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            NormalText(productCode),
-            NormalText(productName),
-            NormalText(productMark),
+            NormalText(productCode, bold: true), SizedBox(height:2.0),
+            NormalText(productName), SizedBox(height:2.0),
+            NormalText(productMark), SizedBox(height:2.0),
             NormalText("$available unidades disponibles"),
           ],
         ),

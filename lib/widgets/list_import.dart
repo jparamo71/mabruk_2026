@@ -21,6 +21,9 @@ class ListImports extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(Icons.remove_red_eye),
                   onPressed: () {
+                    Navigator.of(
+                      context,
+                    ).pushNamed('/import-view', arguments: imports[index].id);
                     /*Import.getInfo(imports[index].id).then((imp) {
                       Navigator.of(
                         context,

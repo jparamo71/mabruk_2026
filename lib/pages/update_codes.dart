@@ -30,7 +30,7 @@ class _UpdateCodesState extends State<UpdateCodes> {
             children: [
               Text('Lea el código de barras del producto'),
               SizedBox(height: 8.0),
-              Container(
+              SizedBox(
                 width: 300,
                 child: TextField(
                   controller: txtController,
@@ -137,7 +137,7 @@ class _UpdateCodesState extends State<UpdateCodes> {
                 ),
               ),
             ]),
-            ...prds.map((e) => _buildTableRow(e)).toList()
+            ...prds.map((e) => _buildTableRow(e))
           ],
         ),
       ),
