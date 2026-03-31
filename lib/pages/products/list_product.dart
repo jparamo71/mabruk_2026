@@ -22,7 +22,7 @@ class ListProduct extends StatelessWidget {
           productName: currentProduct.justName,
           productMark: currentProduct.brandName,
           available: currentProduct.quantityAvailable,
-          prize: currentProduct.prize,
+          price: currentProduct.price,
           imagePath: currentProduct.rutaFisicaImage(),
           onSelect: () {
             if (this.returnValue) {

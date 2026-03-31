@@ -91,7 +91,8 @@ class ItemDocument extends StatelessWidget {
                   alignment: Alignment.topRight,
                   child: IconButton(
                     onPressed: () {
-                      _showMyDialog(context);
+                      onDelete();
+                      //_showMyDialog(context);
                     },
                     alignment: Alignment.topRight,
                     icon: Icon(Icons.delete_outline, color: Colors.redAccent),

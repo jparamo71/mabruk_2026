@@ -7,7 +7,7 @@ class ProductModel {
   final String productName;
   final String brandName;
   final double quantityAvailable;
-  final double prize;
+  final double price;
   final String photo;
   String barcharCode;
   String upcCode;
@@ -20,7 +20,7 @@ class ProductModel {
     required this.productName,
     required this.brandName,
     required this.quantityAvailable,
-    required this.prize,
+    required this.price,
     required this.barcharCode,
     required this.upcCode,
     required this.unitsByPackage,
@@ -34,7 +34,7 @@ class ProductModel {
     productName: '',
     brandName: '',
     quantityAvailable: 0,
-    prize: 0,
+    price: 0,
     barcharCode: '',
     upcCode: '',
     unitsByPackage: 0,
@@ -55,7 +55,7 @@ class ProductModel {
     productName: json["nombreProducto"] ?? '',
     brandName: json["marca"] ?? '',
     quantityAvailable: double.parse(json["existencia"].toString()),
-    prize: double.parse(json["valorLista"].toString()),
+    price: double.parse(json["valorLista"].toString()),
     photo: json["rutaImagen"] ?? '',
     barcharCode: json["codigoBarra"] ?? '',
     upcCode: json["codigoUPC"] ?? '',
@@ -69,7 +69,7 @@ class ProductModel {
     productName: "${json["code"] ?? ''} - ${json["name"] ?? ''}",
     brandName: json["markName"] ?? '',
     quantityAvailable: double.parse(json["available"].toString()),
-    prize: double.parse(json["unitPrice"].toString()),
+    price: double.parse(json["unitPrice"].toString()),
     photo: json["imageUrl"] ?? '',
     barcharCode: json["barcharCode"] ?? '',
     upcCode: json["upcCode"] ?? '',
@@ -83,7 +83,7 @@ class ProductModel {
     'productName': productName,
     'brandName': brandName,
     'quantityAvailable': quantityAvailable,
-    'prize': prize,
+    'prize': price,
     'photo': photo,
     'barcharCode': barcharCode,
     'upcCode': upcCode,

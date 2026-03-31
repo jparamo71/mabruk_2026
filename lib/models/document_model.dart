@@ -12,7 +12,7 @@ class DocumentModel {
   String? statusDocument;
   String? deliveryAddress;
   final UserModel seller;
-  String? notes;
+  String? note;
   List<DocumentDetailModel> details = [];
 
   DocumentModel({
@@ -22,7 +22,7 @@ class DocumentModel {
     required this.isQuote,
     required this.customer,
     required this.seller,
-    required this.notes,
+    required this.note,
     required this.deliveryAddress,
     this.statusDocumentId = 0,
     this.statusDocument = "",
@@ -54,7 +54,7 @@ class DocumentModel {
         isQuote: bool.parse(json['isQuoted'].toString()),
         customer: customer,
         seller: seller,
-        notes: json['note'].toString(),
+        note: json['note'].toString(),
         deliveryAddress: json['addressDelivery'].toString(),
         statusDocumentId: int.parse(json['orderStateId'].toString()),
         statusDocument: json['orderStateName'].toString(),
@@ -99,7 +99,7 @@ class DocumentModel {
       isQuote: bool.parse(json['isQuoted'].toString()),
       customer: customer,
       seller: seller,
-      notes: json['notes'] == null ? "" : json['notes'].toString(),
+      note: json['note'] == null ? "" : json['note'].toString(),
       deliveryAddress: json['addressDelivery'].toString(),
       statusDocumentId: int.parse(json['orderStateId'].toString()),
       statusDocument: json['orderStateName'].toString(),

@@ -90,6 +90,19 @@ class HttpCustom extends http.BaseClient {
         .then(_checkError);
   }
 
+
+  @override
+  Future<http.Response> delete(url, {
+    Map<String, String>? headers,
+    dynamic body,
+    Encoding? encoding
+  })
+  {
+    return _httpClient
+        .delete(url, body: body, encoding: encoding, headers: headers)
+    .then(_checkError);
+  }
+
   Response _checkError(Response response) {
     final int statusCode = response.statusCode;
     if (statusCode < 200 || statusCode > 400) {

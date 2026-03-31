@@ -11,4 +11,6 @@ Future<void> loadConfiguration() async {
   final prefs = await SharedPreferences.getInstance();
   userName = prefs.getString('userEmail') ?? '';
   urlBase = prefs.getString('serverDatabase') ?? '190.149.69.214:4432';
+  print("El nombre de usuario es: ${userName}");
+  print("La url base es ${urlBase}");
 }

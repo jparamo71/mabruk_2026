@@ -10,7 +10,12 @@ import 'package:provider/provider.dart';
 
 class ProductList extends StatefulWidget {
   final bool returnValue;
-  const ProductList({super.key, required this.returnValue});
+  final bool onlyAvailable;
+  const ProductList({
+    super.key,
+    required this.returnValue,
+    required this.onlyAvailable,
+  });
 
   @override
   State<ProductList> createState() => _ProductListState();
@@ -75,7 +80,7 @@ class _ProductListState extends State<ProductList> {
                             }).toList(),
                             onChanged: (newVal) {
                               if (newVal != null) {
-                                provider.setSelectedValue(newVal);
+                                provider.setSelectedValue(newVal, widget.onlyAvailable);
                               }
                             },
                             value: provider.selectedValue,
@@ -128,9 +133,7 @@ class _ProductListState extends State<ProductList> {
                       returnValue: widget.returnValue,
                     );
                   }
-                  return Center(
-                    child: Text("No hay resultados")
-                  );
+                  return Center(child: Text("No hay resultados"));
                 },
               ),
             ),

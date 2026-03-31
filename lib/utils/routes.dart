@@ -14,7 +14,7 @@ class RouteGenerator {
     final args = settings.arguments;
     switch (settings.name) {
       case '/products':
-        return MaterialPageRoute(builder: (_) => const ProductList(returnValue:  false));
+        return MaterialPageRoute(builder: (_) => const ProductList(returnValue:  false, onlyAvailable: false,));
       case '/documents':
         return MaterialPageRoute(builder: (_) => const DocumentList());
       case '/customers':

@@ -29,7 +29,7 @@ class DocumentDetailModel {
         productName: json['productName'].toString(),
         brandName: json['brandName'].toString(),
         quantityAvailable: double.parse(json['quantityAvailable'].toString()),
-        prize: double.parse(json['unitPrize'].toString()),
+        price: double.parse(json['unitPrize'].toString()),
         barcharCode: '',
         upcCode: '',
         unitsByPackage: 0);

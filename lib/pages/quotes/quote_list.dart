@@ -98,7 +98,7 @@ class _QuoteListState extends State<QuoteList> {
     if (result != null) {
       CustomerModel _customerSelected = result as CustomerModel;
       final mabrukService = MabrukService();
-      var document = await mabrukService.createDocument(_customerSelected.customerId, userName, false);
+      var document = await mabrukService.createDocument(_customerSelected.customerId, userName, true);
       if (document != null)
       {
         Navigator.pushNamed(context, "/document", arguments: document.documentId);

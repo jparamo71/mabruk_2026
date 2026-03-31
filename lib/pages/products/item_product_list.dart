@@ -8,7 +8,7 @@ class ItemProductList extends StatelessWidget {
   final String productName;
   final String productMark;
   final double available;
-  final double prize;
+  final double price;
   final Function? onSelect;
   final Function? onPicture;
   final String imagePath;
@@ -18,7 +18,7 @@ class ItemProductList extends StatelessWidget {
     required this.productName,
     required this.productMark,
     required this.available,
-    required this.prize,
+    required this.price,
     required this.onSelect,
     required this.onPicture,
     this.imagePath = '',

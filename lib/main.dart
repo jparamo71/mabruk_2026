@@ -20,9 +20,12 @@ const List<String> scopes = <String>[
   'https://www.googleapis.com/auth/contacts.readonly',*/,
 ];
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = MyHttpOverrides();
+
+  await Future.delayed(const Duration(seconds: 3));
+
   runApp(
     ChangeNotifierProvider(
       create: (_) => MabrukProvider(),
@@ -123,6 +126,7 @@ class _MyLoginPageState extends State<MyLogin> {
   Widget _buildBody(BuildContext context) {
     final GoogleSignInAccount? user = _currentUser;
 
+    print(userName);
     return (user != null || userName != "")
         ? _buildAuthenticatedWidgets()
         : _buildUnauthenticatedWidgets();

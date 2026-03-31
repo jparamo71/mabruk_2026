@@ -85,7 +85,7 @@ class _ProductCatalogState extends State<ProductCatalog> {
                             );
                           }).toList(),
                           onChanged: (new_value) {
-                            value.setSelectedValue(new_value);
+                            value.setSelectedValue(new_value, false);
                           },
                           value: value.selectedValue,
                           icon: const Icon(Icons.arrow_drop_down),
@@ -141,7 +141,7 @@ class _ProductCatalogState extends State<ProductCatalog> {
                               productName: currentProduct.productName,
                               productMark: currentProduct.barcharCode,
                               available: currentProduct.quantityAvailable,
-                              prize: currentProduct.prize,
+                              price: currentProduct.price,
                               onSelect: () {},
                               onPicture: () {},
                             );

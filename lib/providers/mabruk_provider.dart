@@ -22,13 +22,13 @@ class MabrukProvider extends ChangeNotifier {
   // To save state of BrandModel selected
   BrandModel? _selectedValue;
   BrandModel? get selectedValue => _selectedValue;
-  void setSelectedValue(BrandModel? newValue) async {
+  void setSelectedValue(BrandModel? newValue, bool onlyAvailable) async {
     _selectedValue = newValue;
 
     productsModel = await httpService.getProducts(
       '',
       (_selectedValue?.id.toInt() ?? 0),
-      false,
+      onlyAvailable,
       0,
       true,
     );
@@ -141,12 +141,12 @@ class MabrukProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
-  void getCustomers(String filter) async {
-    isLoading = true;
+  void deleteDocument(int id, String email) async {
     try {
-      customersModel = await httpService.getCustomers(filter);
-      print("Cantidad de clientes: ${customersModel.length}");
+      var resultValue = await httpService.deleteDocument(id, email);
+      if (resultValue) {
+        notifyListeners();
+      }
     } catch (e) {
       // TODO
     } finally {
@@ -155,18 +155,83 @@ class MabrukProvider extends ChangeNotifier {
     }
   }
 
-
-  void createQuote(int customerId, String sellerEmail, bool isQuote) async {
+  void addDocumentDetail(
+      int detailId,
+    int documentId,
+    int productId,
+    double unitPrice,
+    double quantity
+  ) async {
     try {
-      var respuesta = await httpService.createDocument(customerId, sellerEmail, isQuote);
-      /*if (respuesta) {
-
-      }*/
+      double totalPrice = unitPrice * quantity;
+      var resultValue = await httpService.addDocumentDetail(
+        detailId,
+        documentId,
+        productId,
+        quantity,
+        unitPrice,
+        totalPrice,
+      );
+      if (resultValue) {
+        this.document = await httpService.getDocument(documentId);
+        notifyListeners();
+      }
+    } catch (e) {
+      // TODO
+    } finally {
       notifyListeners();
-    }catch (e) {
+    }
+  }
+
+  void deleteDocumentDetail(int id, int documentId) async {
+    try {
+      var resultValue = await httpService.deleteDetail(id);
+      if (resultValue) {
+        this.document = await httpService.getDocument(documentId);
+        notifyListeners();
+      }
+    } catch (e) {
       // TODO
     } finally {
       isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  void getCustomers(String filter) async {
+    isLoading = true;
+    try {
+      customersModel = await httpService.getCustomers(filter);
+    } catch (e) {
+      // TODO
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  void createQuote(int customerId, String sellerEmail, bool isQuote) async {
+    try {
+      var respuesta = await httpService.createDocument(
+        customerId,
+        sellerEmail,
+        isQuote,
+      );
+      notifyListeners();
+    } catch (e) {
+      // TODO
+    } finally {
+      notifyListeners();
+    }
+  }
+
+  void updateNote(int id, String note) async {
+    try {
+      var response = await httpService.updateNotes(id, note);
+      notifyListeners();
+    } catch (e) {
+      // TODO
+    } finally {
       notifyListeners();
     }
   }
