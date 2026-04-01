@@ -310,7 +310,8 @@ class MabrukService {
       "note": note
     };
     var jsonToSend = jsonEncode(data);
-    var response = await hc.post(
+    print(jsonToSend);
+    var response = await hc.put(
       url,
       headers: header,
       body: jsonToSend

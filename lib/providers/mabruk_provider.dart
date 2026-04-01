@@ -225,15 +225,18 @@ class MabrukProvider extends ChangeNotifier {
     }
   }
 
-  void updateNote(int id, String note) async {
+  Future<bool> updateNote(int id, String note) async {
     try {
       var response = await httpService.updateNotes(id, note);
-      notifyListeners();
+      if (document != null) {
+        document!.note = note;
+      }
     } catch (e) {
       // TODO
     } finally {
       notifyListeners();
     }
+    return true;
   }
 
 }

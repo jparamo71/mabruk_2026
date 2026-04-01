@@ -124,10 +124,10 @@ class _MyLoginPageState extends State<MyLogin> {
   }
 
   Widget _buildBody(BuildContext context) {
-    final GoogleSignInAccount? user = _currentUser;
+    //final GoogleSignInAccount? user = _currentUser;
 
-    print(userName);
-    return (user != null || userName != "")
+    //print(userName);
+    return (userName != "")
         ? _buildAuthenticatedWidgets()
         : _buildUnauthenticatedWidgets();
   }

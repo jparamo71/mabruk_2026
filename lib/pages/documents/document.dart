@@ -295,13 +295,13 @@ class _DocumentState extends State<Document> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFFE4FDA8),
-            Color(0xFFFCFFA8)],
+          colors: [Color(0xAAFFF0E1),
+            Color(0xFFFFE6E6)],
         ),
         border: Border.all(color: Colors.black38),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Text(document.note ?? "xxx"),
+      child: Text(document.note ?? ""),
     );
   }
 
@@ -323,7 +323,8 @@ class _DocumentState extends State<Document> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  provider.updateNote(document.documentId, currentNote);
+                  provider.updateNote(document.documentId, noteController.text)
+                    .then((value) => Navigator.pop(context, 'OK'));
                 },
                 child: const Text('Aplicar cambios'),
               ),
